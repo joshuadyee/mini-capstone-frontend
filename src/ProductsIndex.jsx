@@ -8,9 +8,9 @@ export function ProductsIndex(props) {
             <p>{product.description}</p>
             <p>${product.price}</p>
             <p>Inventory: {product.inventory}</p>
-            <p>Supplier: {product.supplier.name}</p>
+            <p>Supplier ID: {product.supplier_id}</p>
         </div>
       ))}
     </div>
   )
-}
+} 

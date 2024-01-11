@@ -1,7 +1,11 @@
+import { Signup } from "./Signup"
+import { Login } from "./Login"
+import { LogoutLink } from "./LogoutLink"
 import { ProductsIndex } from "./ProductsIndex"
 import { ProductsNew } from "./ProductsNew"
 import axios from "axios"
 import { useState, useEffect } from "react"
+import { Routes, Route } from "react-router-dom"
 
 export function Content() {
   // same as const products = []
@@ -29,10 +33,16 @@ export function Content() {
 
   return (
     <div>
-      <h1>Welcome to my Shop!</h1>
-      <ProductsNew onProductCreate={handleProductCreate}/>
-      <ProductsIndex products={products}/>
+      <h1>Welcome to My Shop!</h1>
+      <Routes>
+        <Route path="/signup" element={<Signup />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/logout" element={<LogoutLink />}/>
+        <Route path="products/new" element={<ProductsNew onProductCreate={handleProductCreate}/>}/> 
+        <Route path="products/index" element={      <ProductsIndex products={products}/>}/>
+      </Routes>
       {/* <button onClick={handleProductsIndex}>All Products</button> */}
+
     </div>
   )
 }
