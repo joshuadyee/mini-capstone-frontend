@@ -20,7 +20,7 @@ export function Content() {
   const handleProductsIndex = () => {
     console.log("products index")
     axios.get("http://localhost:3000/products.json").then(response => {
-      console.log(response.data)
+      // console.log(response.data)
       // logs the data to the console, not to the page
       setProducts(response.data)
       // resets the value of products to the data, logs it to the page
