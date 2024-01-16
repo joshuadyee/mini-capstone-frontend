@@ -4,6 +4,8 @@ import { useState } from "react";
 export function Signup() {
   const [errors, setErrors] = useState([]);
 
+  const [userName, setUserName] = useState("")
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors([]);
@@ -31,7 +33,8 @@ export function Signup() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input name="name" type="text" />
+          Name: <input name="name" type="text" value={userName} onChange={event => setUserName(event.target.value)} maxLength="20"/>
+          <small>{20 - userName.length} characters remaining</small>
         </div>
         <div>
           Email: <input name="email" type="email" />
