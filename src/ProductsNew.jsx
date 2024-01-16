@@ -11,15 +11,15 @@ export function ProductsNew(props) {
     console.log("creating product...")
   }
   
-  const productsIndex = () => {
-    // console.log("YOOOOO")
+  const suppliersIndex = () => {
+    console.log("suppliers Index")
     axios.get("http://localhost:3000/suppliers.json").then(response => {
-      console.log(response.data)
+      // console.log(response.data)
       setSuppliers(response.data)
     })
   }
 
-  useEffect(productsIndex, [])
+  useEffect(suppliersIndex, [])
 
   return (
     <div>
