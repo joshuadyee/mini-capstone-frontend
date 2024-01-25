@@ -18,6 +18,8 @@ export function ProductsIndex(props) {
           <p>${product.price}</p>
           <p>Inventory: {product.inventory}</p>
           <p>Supplier ID: {product.supplier_id}</p>
+          {/* {JSON.stringify(product.images)} */}
+          <img width="300px" src={product.images[0] && product.images[0].url} />
           <button onClick={() => props.onShowProduct(product)}>More info</button> <hr />
         </div>
       ))}

@@ -9,6 +9,7 @@ export function ProductsShow(props) {
     axios.post('http://localhost:3000/carted_products.json', params).then(response => {
       console.log(response.data)
     })
+    window.location.href = "/"
   }
 
   return (
@@ -24,8 +25,8 @@ export function ProductsShow(props) {
           <input name="product_id" type="hidden" defaultValue={props.product.id} />
         </div>
         <div>
-          Quantity: <input name="quantity" type="text" />
-        </div>
+          Quantity: <input name="quantity" type="text" /> 
+        </div> <br />
         <button type="submit">Add to Cart</button>
       </form>
     </div>

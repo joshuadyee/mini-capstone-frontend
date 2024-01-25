@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 export function ProductsNew(props) {
   const [suppliers, setSuppliers] = useState([])
 
+  const [images, setImages] = useState([""])
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const params = new FormData(event.target)
@@ -12,11 +14,16 @@ export function ProductsNew(props) {
   }
   
   const suppliersIndex = () => {
-    console.log("suppliers Index")
+    // console.log("suppliers Index")
     axios.get("http://localhost:3000/suppliers.json").then(response => {
       // console.log(response.data)
       setSuppliers(response.data)
     })
+  }
+
+  const addImage = () => {
+    console.log("adding image")
+    setImages([...images, ""])
   }
 
   useEffect(suppliersIndex, [])
@@ -33,6 +40,9 @@ export function ProductsNew(props) {
           <div>Description: <input type="text" name="description" /></div>
           <div>Price: <input type="text" name="price" /></div>
           <div>Inventory: <input type="text" name="inventory" /></div> 
+          {images.map(image => (          
+          <p>Image<input name="images[]" type="text" /></p>        
+        ))}
           {/* <div>Supplier ID: <input type="text" name="supplier_id" /></div> <br /> */}
           <select name="supplier" id="supplier">
             {suppliers.map(supplier => (
@@ -41,6 +51,7 @@ export function ProductsNew(props) {
           </select> <br />
           <button type="submit">Create Product</button> <br />
         </form>
+        <button onClick={addImage}>Add More Images</button>
     </div>
   )
 }

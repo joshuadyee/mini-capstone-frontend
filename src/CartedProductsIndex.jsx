@@ -37,7 +37,7 @@ export function CartedProductsIndex() {
           <hr />
         </div>        
       ))}
-      <p><button onClick={createOrder}>Buy</button></p>
+      <p><button onClick={createOrder}>Place your order</button></p>
     </div>
   )
 }
